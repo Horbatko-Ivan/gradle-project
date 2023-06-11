@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'org.goit'
-version '1.0-SNAPSHOT'
+version ''
 
 repositories {
     mavenCentral()
@@ -18,9 +18,11 @@ dependencies {
 test {
     useJUnitPlatform()
 }
-jar {
+task fatJar(type: Jar) {
     manifest {
         attributes 'Main-Class': 'org.goit.Main'
     }
+    archivesBaseName = 'myname'
     from configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    with jar
 }
