@@ -1,5 +1,18 @@
-package org.goit;public class Main {
+package org.goit;
+
+import com.google.gson.Gson;
+
+public class Main {
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        String name = "Mykola";
+        String lastName = "Bilokonsky";
+
+        Person person = new Person(name, lastName);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(person);
+
+        System.out.println(json);
     }
 }
